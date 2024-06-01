@@ -37,4 +37,4 @@ description = "A simple speed test app, downloads for 5s then displays the speed
 # increased, we interpret this as a new version being released.
 #
 # Version number must be an integer!
-version = "0.0.4"
+version = "0.0.5"

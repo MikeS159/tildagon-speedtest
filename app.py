@@ -28,27 +28,23 @@ class SpeedTest(app.App):
 
 def download_and_discard(url):
     print("starting download")
-    try:
-        with requests.get(url, stream=True) as r:
-            r.raise_for_status()
-            total_bytes = 0
-            start_time = time.time()
-            end_time = time.time()
-            for chunk in r.iter_content(chunk_size=8192): # Probably about as much memory as we want to buffer
-                if chunk:
-                    total_bytes += len(chunk)
-                if total_bytes % 81920 == 0:
-                    end_time = time.time()
-                    if end_time - start_time > 5:
-                        break
-            end_time = time.time()
-            duration = end_time - start_time
-            speed = total_bytes / duration / 1024  # Speed in KB/s
-            print(duration)
-            print(speed)
-            return "{:,.3f}".format(speed) + " KB/s"
-    except requests.exceptions.RequestException as e:
-        print(f"Error during download: {e}")
-        return f"Error: {e}"
+    with requests.get(url, stream=True) as r:
+        r.raise_for_status()
+        total_bytes = 0
+        start_time = time.time()
+        end_time = time.time()
+        for chunk in r.iter_content(chunk_size=8192): # Probably about as much memory as we want to buffer
+            if chunk:
+                total_bytes += len(chunk)
+            if total_bytes % 81920 == 0:
+                end_time = time.time()
+                if end_time - start_time > 5:
+                    break
+        end_time = time.time()
+        duration = end_time - start_time
+        speed = total_bytes / duration / 1024  # Speed in KB/s
+        print(duration)
+        print(speed)
+        return "{:,.3f}".format(speed) + " KB/s"
 
 __app_export__ = SpeedTest
