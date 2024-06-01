@@ -1,10 +1,10 @@
 [app]
 # The name of your app as displayed in the menu
-name = "Demo App"
+name = "Speed Test"
 
 # The submenu where your app should appear.
 # One of: "Badge", "Music", "Media", "Apps", "Games"
-category = "Badge"
+category = "Apps"
 
 # OPTIONAL: Same as above, for compatibility with older firmware
 # versions that can't handle categories introduced afterwards.
@@ -14,24 +14,24 @@ category = "Badge"
 # OPTIONAL: If your app prefers wifi to be off or on when entering.
 # Useful if you want more resources (false) or need wifi (true).
 # Remove if you don't want to change wifi state!
-# wifi_preference = false
+wifi_preference = true
 
 [entry]
 # The name of your entry point `Application` class
-# class = "NickApp"
+class = "SpeedTest"
 
 [metadata]
 # Your nickname.  Must be at most 32 characters!
-author = "hughrawlinson"
+author = "MikeS159"
 
 # License of your app as an SPDX identifier: <https://spdx.org/licenses/>
-license = "LGPL-3.0-only"
+license = "MIT
 
 # URL to the repository of your app.
-url = "https://www.github.com/hughrawlinson/tildagon-demo"
+url = "https://github.com/MikeS159/tildagon-speedtest"
 
 # Description of your app.  Maximum 140 characters!
-description = "A demo tildagon app for use developing the app directory"
+description = "A simple speed test app, downloads for 5s then displays the speed"
 
 # Version number of your app.  If you push a commit where this number is
 # increased, we interpret this as a new version being released.
