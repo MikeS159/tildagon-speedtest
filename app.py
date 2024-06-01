@@ -45,6 +45,6 @@ def download_and_discard(url):
         speed = total_bytes / duration / 1024  # Speed in KB/s
         print(duration)
         print(speed)
-        return "{:,.3f}".format(speed) + " KB/s"
+    return "{:,.3f}".format(speed) + " KB/s"
 
 __app_export__ = SpeedTest
