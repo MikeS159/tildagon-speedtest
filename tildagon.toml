@@ -25,7 +25,7 @@ class = "SpeedTest"
 author = "MikeS159"
 
 # License of your app as an SPDX identifier: <https://spdx.org/licenses/>
-license = "MIT
+license = "MIT"
 
 # URL to the repository of your app.
 url = "https://github.com/MikeS159/tildagon-speedtest"
@@ -37,4 +37,4 @@ description = "A simple speed test app, downloads for 5s then displays the speed
 # increased, we interpret this as a new version being released.
 #
 # Version number must be an integer!
-version = "0.0.1"
+version = "0.0.3"
