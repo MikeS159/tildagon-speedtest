@@ -34,10 +34,10 @@ def download_and_discard(url):
             total_bytes = 0
             start_time = time.time()
             end_time = time.time()
-            for chunk in r.iter_content(chunk_size=65536): # Probably about as much memory as we want to buffer
+            for chunk in r.iter_content(chunk_size=8192): # Probably about as much memory as we want to buffer
                 if chunk:
                     total_bytes += len(chunk)
-                if total_bytes % 655360 == 0:
+                if total_bytes % 81920 == 0:
                     end_time = time.time()
                     if end_time - start_time > 5:
                         break
