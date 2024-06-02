@@ -8,9 +8,8 @@ from app_components import clear_background
 class SpeedTest(app.App):
     def __init__(self):
         self.button_states = Buttons(self)
-        url = "http://ash-speed.hetzner.com/100MB.bin"
-        self.dl_speed = "Downloading..."
-        self.dl_speed = download_and_discard(url)
+        self.url = "http://ash-speed.hetzner.com/100MB.bin"
+        self.dl_speed = "Ready, press C\nTest takes 5s"
 
     def update(self, delta):
         if self.button_states.get(BUTTON_TYPES["CANCEL"]):
@@ -19,6 +18,8 @@ class SpeedTest(app.App):
             # Without it the app would close again immediately.
             self.button_states.clear()
             self.close()
+        if self.button_states.get(BUTTON_TYPES["CONFIRM"]):
+            self.dl_speed = download_and_discard(self.url)
 
     def draw(self, ctx):
         clear_background(ctx)
@@ -90,3 +91,4 @@ def download_and_discard(url):
     return "{:,.3f}".format(speed) + " KB/s\n""{:,.3f}".format(speed*8) + " Kb/s"
 
 __app_export__ = SpeedTest
+
