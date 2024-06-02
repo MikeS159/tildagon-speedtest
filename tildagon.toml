@@ -18,7 +18,7 @@ wifi_preference = true
 
 [entry]
 # The name of your entry point `Application` class
-class = "SpeedTest"
+#class = "SpeedTest"
 
 [metadata]
 # Your nickname.  Must be at most 32 characters!
